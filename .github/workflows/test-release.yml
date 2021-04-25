@@ -39,6 +39,13 @@ jobs:
             const releaseName = 'test-release-name'
             const tagName = 'test-release-tag'
 
+            const releasesResult = await github.request('POST /repos/{owner}/{repo}/releases', {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+
+            console.log('releasesResult', releasesResult)
+
             // Create a release
             // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
             const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
