@@ -33,16 +33,17 @@ jobs:
             core.info(JSON.stringify(context, null, 2))
             core.endGroup()
 
+            console.log('context.repo', context.repo)
+
             // Based on: https://github.com/actions/create-release/blob/main/src/create-release.js
-            const { owner: currentOwner, repo: currentRepo } = context.repo
             const releaseName = 'test-release-name'
             const tagName = 'test-release-tag'
 
             // Create a release
             // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
             const createReleaseResponse = await github.repos.createRelease({
-              owner,
-              repo,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               tag_name: tagName,
               name: releaseName,
               body: null,
