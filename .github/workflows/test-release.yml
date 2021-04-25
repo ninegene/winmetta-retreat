@@ -41,7 +41,7 @@ jobs:
 
             // Create a release
             // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
-            const {data} = await github.request('POST', /repos/{owner}/{repo}/releases', {
+            const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
               owner: context.repo.owner,
               repo: context.repo.repo,
               tag_name: tagName,
