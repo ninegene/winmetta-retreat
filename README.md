@@ -1,23 +1,10 @@
 # WinMetta Retreat Electron
 
-## Dev Setup
-
-```script
-git clone git@github.com:ninegene/winmetta-retreat-2021-04-16.
-```
-
-## Make changes
-
-```script
-cd winmetta-retreat-2021-04-16
-# make changes to js, css, html etc.
-./build.sh 
-```
 
 ## Start Electron App
 
 ```script
-npm start
+npm run dev
 ```
 
 ## Notes on creating distributable app
