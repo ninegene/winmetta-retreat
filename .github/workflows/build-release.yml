@@ -33,3 +33,14 @@ jobs:
         run: |
           npm install
           npm run make
+
+      - name: Install tree on Ubuntu
+        run: |
+          sudo apt install tree
+          tree out
+        if: matrix.os == 'ubuntu-latest'
+
+      - name: List Files
+        run: |
+          npm install -g tree-cli
+          tree --ignore 'node_modules/,.git' -l 8

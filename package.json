@@ -14,7 +14,7 @@
     "make-windows-x64": "electron-forge make --platform win32 --arch x64"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aung Lwin Oo",
   "license": "ISC",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
