@@ -31,4 +31,5 @@ jobs:
 
       - name: Build
         run: |
-          ./build.sh
+          npm install
+          npm run make
