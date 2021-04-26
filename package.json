@@ -1,6 +1,6 @@
 {
   "name": "winmetta-retreat",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "WinMetta Retreat Desktop App",
   "main": "main.js",
   "scripts": {
