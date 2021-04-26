@@ -1,7 +1,7 @@
 {
-  "name": "winmetta-retreat-electron",
+  "name": "winmetta-retreat",
   "version": "1.0.0",
-  "description": "WinMetta Retreat",
+  "description": "WinMetta Retreat Desktop App",
   "main": "main.js",
   "scripts": {
     "dev": "ENVIRONMENT=DEV electron-forge start",
@@ -11,7 +11,9 @@
     "make": "electron-forge make",
     "make-macos-x64": "electron-forge make --platform darwin --arch x64",
     "make-linux-x64-deb": "electron-forge make --platform linux --arch x64 --targets deb",
-    "make-windows-x64": "electron-forge make --platform win32 --arch x64"
+    "make-windows-x64": "electron-forge make --platform win32 --arch x64",
+    "publish-dry-run": "electron-forge publish --dry-run",
+    "publish": "electron-forge publish"
   },
   "keywords": [],
   "author": "Aung Lwin Oo",
@@ -22,6 +24,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
     "electron": "^12.0.5"
   },
   "dependencies": {
@@ -34,7 +37,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "winmetta_retreat_electron"
+            "name": "winmetta_retreat"
           }
         },
         {
@@ -50,6 +53,18 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "platforms": ["darwin", "windows", "linux"],
+          "config": {
+            "repository": {
+              "owner": "ninegene",
+              "name": "winmetta_retreat"
+            }
+          }
         }
       ]
     }

@@ -1,13 +1,8 @@
-name: Build/Release
-
-# Controls when the action will run. 
+name: Release
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  release:
+    types:
+      - created
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,13 +22,17 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
-      - name: Build
+      - name: Install NPM Packages
         run: |
           npm install
-          npm run make
-        if: matrix.os == 'macos-latest'
+
+      - name: Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm run publish
 
       # - name: Build
       #   run: |
@@ -53,7 +52,9 @@ jobs:
       #     npm run make-windows-x64
       #   if: matrix.os == 'windows-latest'
 
-      - name: List Files
+      - name: List Directories and Files
         run: |
+          echo "::group::tree output"
           npm install -g tree-cli
           tree --ignore 'node_modules/,.git' -l 8
+          echo "::endgroup::"
