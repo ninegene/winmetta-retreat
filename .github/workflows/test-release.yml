@@ -30,6 +30,12 @@ jobs:
 
             console.log('context.repo', context.repo)
 
+            const releasesResult = await github.request('GET /repos/{owner}/{repo}/releases', {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            console.log('releasesResult', releasesResult)
+
 #            // Based on: https://github.com/actions/create-release/blob/main/src/create-release.js
 #            const releaseName = 'test-release-name'
 #            const tagName = 'test-release-tag'
