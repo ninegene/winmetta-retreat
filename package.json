@@ -1,6 +1,6 @@
 {
   "name": "winmetta-retreat",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WinMetta Retreat Desktop App",
   "main": "main.js",
   "scripts": {
@@ -58,7 +58,11 @@
       "publishers": [
         {
           "name": "@electron-forge/publisher-github",
-          "platforms": ["darwin", "windows", "linux"],
+          "platforms": [
+            "darwin",
+            "windows",
+            "linux"
+          ],
           "config": {
             "repository": {
               "owner": "ninegene",
