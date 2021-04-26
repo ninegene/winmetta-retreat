@@ -41,7 +41,7 @@ jobs:
             const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tagName: 'test-release-tag'
+              tag_name: 'test-release-tag'
             })
 #            // Based on: https://github.com/actions/create-release/blob/main/src/create-release.js
 #            const releaseName = 'test-release-name'
