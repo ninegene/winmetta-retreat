@@ -30,19 +30,19 @@ jobs:
 
             console.log('context.repo', context.repo)
 
-            // Based on: https://github.com/actions/create-release/blob/main/src/create-release.js
-            const releaseName = 'test-release-name'
-            const tagName = 'test-release-tag'
-
-            const releasesResult = await github.request('POST /repos/{owner}/{repo}/releases', {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-
-            console.log('releasesResult', releasesResult)
-
-            // Create a release
-            // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
+#            // Based on: https://github.com/actions/create-release/blob/main/src/create-release.js
+#            const releaseName = 'test-release-name'
+#            const tagName = 'test-release-tag'
+#
+#            const releasesResult = await github.request('POST /repos/{owner}/{repo}/releases', {
+#              owner: context.repo.owner,
+#              repo: context.repo.repo,
+#            })
+#
+#            console.log('releasesResult', releasesResult)
+#
+#            // Create a release
+#            // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
 #            const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
 #              owner: context.repo.owner,
 #              repo: context.repo.repo,
