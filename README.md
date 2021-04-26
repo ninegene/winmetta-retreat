@@ -38,16 +38,6 @@ TODO: look into using github actions e.g. <https://gist.github.com/azu/673426500
 
 Based on: <https://dev.to/erikhofer/build-and-publish-a-multi-platform-electron-app-on-github-3lnd>
 
-For "Searching for target release ... Not Found Error", see:
-
-- <https://github.com/electron-userland/electron-forge/issues/1476>
-
-```
-Solved by adding additional oauth scopes to GITHUB_TOKEN.
-
-X-OAuth-Scopes: public_repo, repo:status, repo_deployment
-```
-
 ## Initial Setup Notes
 
 Based on: <https://www.electronjs.org/docs/tutorial/quick-start>

@@ -1,6 +1,6 @@
 {
   "name": "winmetta-retreat",
-  "version": "1.2.0",
+  "version": "0.2.0",
   "description": "WinMetta Retreat Desktop App",
   "main": "main.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "make-linux-x64-deb": "electron-forge make --platform linux --arch x64 --targets deb",
     "make-windows-x64": "electron-forge make --platform win32 --arch x64",
     "publish-dry-run": "electron-forge publish --dry-run",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish",
+    "debug-publish": "DEBUG=electron-forge:* electron-forge publish"
   },
   "keywords": [],
   "author": "Aung Lwin Oo",
@@ -37,7 +38,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "winmetta_retreat"
+            "name": "winmetta-retreat"
           }
         },
         {
@@ -61,7 +62,7 @@
           "config": {
             "repository": {
               "owner": "ninegene",
-              "name": "winmetta_retreat"
+              "name": "winmetta-retreat"
             },
             "draft": true
           }
