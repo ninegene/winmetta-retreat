@@ -13,11 +13,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,7 +23,6 @@ jobs:
       - name: Create Release
         uses: actions/github-script@v4
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             core.startGroup('context output')
             core.info(JSON.stringify(context, null, 2))
@@ -48,15 +43,15 @@ jobs:
 
             // Create a release
             // API Documentation: https://docs.github.com/en/rest/reference/repos#create-a-release
-            const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: tagName,
-              name: releaseName,
-              body: null,
-              draft: true,
-              prerelease: false,
-              target_commitish: context.sha
-            })
-
-            console.log('data', data)
+#            const {data} = await github.request('POST /repos/{owner}/{repo}/releases', {
+#              owner: context.repo.owner,
+#              repo: context.repo.repo,
+#              tag_name: tagName,
+#              name: releaseName,
+#              body: null,
+#              draft: true,
+#              prerelease: false,
+#              target_commitish: context.sha
+#            })
+#
+#            console.log('data', data)
