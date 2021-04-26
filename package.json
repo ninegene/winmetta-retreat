@@ -63,7 +63,8 @@
             "repository": {
               "owner": "ninegene",
               "name": "winmetta_retreat"
-            }
+            },
+            "draft": true
           }
         }
       ]

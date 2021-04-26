@@ -35,6 +35,10 @@ Can't build windows app on MacOS.
 
 TODO: look into using github actions e.g. https://gist.github.com/azu/673426500458f63f019c8f5e013f282a
 
+## Setup Github Workflow
+
+Based on: https://dev.to/erikhofer/build-and-publish-a-multi-platform-electron-app-on-github-3lnd
+
 ## Initial Setup Notes
 
 Based on: <https://www.electronjs.org/docs/tutorial/quick-start>
