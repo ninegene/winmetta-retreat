@@ -3,10 +3,10 @@
 [retreat.winmetta.org](https://retreat.winmetta.org) Desktop(Electron) app for macOS, Windows and Linux.
 The app is created to avoid browser's restriction on playing sound periodically.
 
+See [docs](/docs) folder on install guide.
+
 [![Release](https://github.com/ninegene/winmetta-retreat/actions/workflows/release.yml/badge.svg)](https://github.com/ninegene/winmetta-retreat/actions/workflows/release.yml)
  
-
-See [docs](/docs) folder on install guide.
 
 ## Development
 
