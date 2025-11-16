@@ -11,7 +11,9 @@ function createWindow () {
     width: isDevEnv ? 1600 : 800,
     height: isDevEnv ? 1024 : 800,
     webPreferences: {
-      enableRemoteModule: false,
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
       preload: path.join(__dirname, 'preload.js')
     }
   })
