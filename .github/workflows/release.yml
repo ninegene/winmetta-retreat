@@ -4,9 +4,7 @@ on:
     tags:
       - 'v*'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ${{ matrix.os }}
 
@@ -14,47 +12,23 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: 14
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install system dependencies (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get install -y dpkg fakeroot rpm
 
       - name: Install NPM Packages
-        run: |
-          npm install
+        run: npm ci
 
       - name: Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm run publish
-
-      # - name: Build
-      #   run: |
-      #     npm install
-      #     npm run make-macos-x64
-      #   if: matrix.os == 'macos-latest'
-
-      # - name: Build
-      #   run: |
-      #     npm install
-      #     npm run make-linux-x64-deb
-      #   if: matrix.os == 'ubuntu-latest'
-
-      # - name: Build
-      #   run: |
-      #     npm install
-      #     npm run make-windows-x64
-      #   if: matrix.os == 'windows-latest'
-
-      - name: List Directories and Files
-        run: |
-          echo "::group::tree output"
-          npm install -g tree-cli
-          tree --ignore 'node_modules/,.git' -l 8
-          echo "::endgroup::"
+        run: npm run publish
